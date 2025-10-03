@@ -1,4 +1,4 @@
-function footer() {
+function Footer() {
     return(
         <>
            <footer className="footer">
@@ -58,4 +58,4 @@ function footer() {
       </footer>
         </>
     )}
-    export default footer
+    export default Footer
