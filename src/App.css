@@ -1,0 +1,13 @@
+/* Logo image styling */
+.navbar-logo img {
+    height: 40px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* Logo hover effect */
+.navbar-logo img:hover {
+    transform: scale(1.05);
+}
