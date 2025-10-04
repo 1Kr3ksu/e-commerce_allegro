@@ -34,24 +34,46 @@ function Hero_image() {
   }, []);
 
   return (
-  <section className="hero-image">
-    <div className="hero-image-slide">
-      <img src={slides[current].img} alt="Hero" />
-    </div>
-    <div>{slides[current].text}</div>
-    <button onClick={() => setCurrent((current - 1 + slides.length) % slides.length)}>&lt;</button>
-    <button onClick={() => setCurrent((current + 1) % slides.length)}>&gt;</button>
-    <div>
-      {slides.map((_, idx) => (
-        <span
-          key={idx}
-          style={{ margin: 2, cursor: 'pointer', color: idx === current ? 'orange' : 'gray' }}
-          onClick={() => setCurrent(idx)}
-        >●</span>
-      ))}
-    </div>
-  </section>
-);
+    <section className="hero-section">
+      <div className="hero-container">
+        <div className="hero-slide">
+          <img src={slides[current].img} alt="Hero" className="hero-image" />
+          <div className="hero-overlay">
+            <div className="hero-content">
+              <h2 className="hero-title">{slides[current].text}</h2>
+            </div>
+          </div>
+        </div>
+
+        <button
+          className="nav-button nav-button-prev"
+          onClick={() => setCurrent((current - 1 + slides.length) % slides.length)}
+          aria-label="Poprzedni slide"
+        >
+          ‹
+        </button>
+
+        <button
+          className="nav-button nav-button-next"
+          onClick={() => setCurrent((current + 1) % slides.length)}
+          aria-label="Następny slide"
+        >
+          ›
+        </button>
+
+        <div className="hero-dots">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              className={`dot ${idx === current ? 'dot-active' : ''}`}
+              onClick={() => setCurrent(idx)}
+              aria-label={`Przejdź do slajdu ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Hero_image;
