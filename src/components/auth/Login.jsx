@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Login({ onClose, switchToRegister }) {
+function Login({ onClose, switchToRegister, switchToForgotPassword }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -48,7 +48,12 @@ function Login({ onClose, switchToRegister }) {
             </form>
 
             <div className="auth-footer">
-                <a href="#" className="forgot-password">Zapomniałeś hasła?</a>
+                <button 
+                    onClick={switchToForgotPassword} 
+                    className="forgot-password link-btn"
+                >
+                    Zapomniałeś hasła?
+                </button>
                 <div className="switch-mode">
                     <span>Nie masz konta? </span>
                     <button onClick={switchToRegister} className="switch-btn">

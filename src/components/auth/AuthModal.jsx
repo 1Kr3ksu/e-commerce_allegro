@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Login from './Login';
 import Register from './Register';
+import ForgotPassword from '../forgot_password';
 
 function AuthModal({ isOpen, onClose, mode, userType, onModeChange }) {
     // Zamykanie modal'a po naciśnięciu ESC
@@ -32,6 +33,10 @@ function AuthModal({ isOpen, onClose, mode, userType, onModeChange }) {
         onModeChange('register', type);
     };
 
+    const switchToForgotPassword = () => {
+        onModeChange('forgot-password');
+    };
+
     return (
         <div className="modal-backdrop" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -39,6 +44,7 @@ function AuthModal({ isOpen, onClose, mode, userType, onModeChange }) {
                     <Login
                         onClose={onClose}
                         switchToRegister={() => switchToRegister('buyer')}
+                        switchToForgotPassword={switchToForgotPassword}
                     />
                 )}
                 {mode === 'register' && (
@@ -46,6 +52,12 @@ function AuthModal({ isOpen, onClose, mode, userType, onModeChange }) {
                         onClose={onClose}
                         switchToLogin={switchToLogin}
                         userType={userType}
+                    />
+                )}
+                {mode === 'forgot-password' && (
+                    <ForgotPassword
+                        onClose={onClose}
+                        onBackToLogin={switchToLogin}
                     />
                 )}
             </div>

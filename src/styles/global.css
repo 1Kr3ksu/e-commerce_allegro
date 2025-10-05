@@ -3,7 +3,8 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    padding-top: 60px; /* Dodane żeby nie nachodzić na fixed header */
+    padding-top: 60px;
+    /* Dodane żeby nie nachodzić na fixed header */
     font-family: Arial, sans-serif;
 }
 
