@@ -1,8 +1,8 @@
 /* Allegro Categories Section */
 .allegro-categories-section {
-    background-color: #f8f8f8;
+    background-color: var(--categories-bg);
     padding: 40px 0;
-    border-top: 1px solid #e6e6e6;
+    border-top: 1px solid var(--categories-border);
 }
 
 .allegro-categories-container {
@@ -19,17 +19,17 @@
 }
 
 .allegro-category-column {
-    background: white;
+    background: var(--categories-card-bg);
     padding: 0;
 }
 
 .allegro-category-title {
     font-size: 16px;
     font-weight: 700;
-    color: #2d2d30;
+    color: var(--categories-text-primary);
     margin: 0 0 15px 0;
     padding-bottom: 8px;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid var(--categories-border);
 }
 
 .allegro-category-links {
@@ -43,7 +43,7 @@
 }
 
 .allegro-category-link {
-    color: #00a078b6;
+    color: var(--categories-text-secondary);
     text-decoration: none;
     font-size: 13px;
     line-height: 1.4;
@@ -52,19 +52,19 @@
 
 .allegro-category-link:hover {
     text-decoration: underline;
-    color: #ff6900;
+    color: var(--orange-primary);
 }
 
 .allegro-show-more {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid #e6e6e6;
+    border-top: 1px solid var(--categories-border);
 }
 
 .allegro-show-more-btn {
-    background: white;
-    border: 1px solid #e6e6e6;
-    color: #2d2d30;
+    background: var(--categories-card-bg);
+    border: 1px solid var(--categories-border);
+    color: var(--categories-text-primary);
     font-size: 13px;
     font-weight: 600;
     padding: 12px 24px;
@@ -75,8 +75,8 @@
 }
 
 .allegro-show-more-btn:hover {
-    background: #f5f5f5;
-    border-color: #ccc;
+    background: var(--categories-bg);
+    border-color: var(--categories-text-secondary);
 }
 
 /* Responsive Categories */

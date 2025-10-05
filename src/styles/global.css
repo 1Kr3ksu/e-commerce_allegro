@@ -1,11 +1,13 @@
 /* Global Styles */
 body {
-    background-color: #f5f5f5;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     margin: 0;
     padding: 0;
     padding-top: 60px;
     /* Dodane żeby nie nachodzić na fixed header */
     font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Common animations */
@@ -41,12 +43,12 @@ body {
 }
 
 .btn-primary {
-    background-color: #ff6d00;
+    background-color: var(--orange-primary);
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #e65100;
+    background-color: var(--orange-tertiary);
 }
 
 /* Text utilities */

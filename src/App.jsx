@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import './styles/global.css';
+import './styles/Theme.css';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './Header'
 import Categories from './Categories'
 import Hero_image from './Hero_image'
@@ -10,14 +12,14 @@ import Footer from './Footer'
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <Header />
       <Hero_image />
       <Recommendations />
       <Carts />
       <Categories />
       <Footer />
-    </>
+    </ThemeProvider>
   )
 }
 

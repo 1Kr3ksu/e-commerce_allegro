@@ -48,8 +48,8 @@ function Login({ onClose, switchToRegister, switchToForgotPassword }) {
             </form>
 
             <div className="auth-footer">
-                <button 
-                    onClick={switchToForgotPassword} 
+                <button
+                    onClick={switchToForgotPassword}
                     className="forgot-password link-btn"
                 >
                     Zapomniałeś hasła?

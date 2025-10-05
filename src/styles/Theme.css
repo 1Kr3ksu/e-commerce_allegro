@@ -1,0 +1,188 @@
+/* CSS Variables dla motywów */
+:root {
+    /* Light theme colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f567;
+    --bg-tertiary: #ebebeb80;
+    --text-primary: #2d2d30;
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+    --border-color: #e6e6e6;
+    --border-color-light: #f0f0f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color-strong: rgba(0, 0, 0, 0.2);
+
+    /* Allegro orange stays the same */
+    --orange-primary: #ff6d00;
+    --orange-secondary: #ff8533;
+    --orange-tertiary: #e65100;
+    --orange-light: rgba(255, 109, 0, 0.1);
+
+    /* Specjalne zmienne dla Categories - jasny motyw */
+    --categories-bg: #f8f8f8;
+    /* Tło sekcji kategorii - jasne szare */
+    --categories-card-bg: #ffffff;
+    /* Tło kart kategorii - białe */
+    --categories-text-primary: #2d2d30;
+    /* Ciemny tekst tytułów */
+    --categories-text-secondary: #00a078b6;
+    /* Zielonkawy tekst linków (jak oryginalne Allegro) */
+    --categories-border: #e6e6e6;
+    /* paski w kategoriach */
+}
+
+/* Dark theme colors */
+.dark-theme {
+    --bg-primary: #2d2d2d;
+    /* Header i carty - szare */
+    --bg-secondary: #000000;
+    /* Tło strony - czarne */
+    --bg-tertiary: #000000;
+    /* Categories - czarne */
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-tertiary: #999999;
+    --border-color: #404040;
+    --border-color-light: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-color-strong: rgba(0, 0, 0, 0.5);
+
+    /* Specjalne zmienne tylko dla Categories */
+    --categories-bg: #000000;
+    /* Tło sekcji kategorii - czarne */
+    --categories-card-bg: #000000;
+    /* Tło kart kategorii - szare */
+    --categories-text-primary: #ffffff;
+    /* Biały tekst tytułów */
+    --categories-text-secondary: #cccccc;
+    /* Szary tekst linków */
+    --categories-text-secondary: #00a078b6;
+    /* paski w kategoriach */
+    --categories-border: #3a3838;
+}
+
+/* Theme Modal Styles */
+.theme-modal {
+    max-width: 520px;
+    width: 90%;
+}
+
+.theme-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0;
+    margin-bottom: 16px;
+}
+
+.theme-modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.theme-modal-body {
+    padding: 0 24px 24px;
+}
+
+.theme-description {
+    color: var(--orange-primary);
+    font-size: 14px;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.theme-options {
+    margin-bottom: 32px;
+}
+
+.theme-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-option:last-child {
+    border-bottom: none;
+}
+
+.theme-option input[type="radio"] {
+    margin: 4px 0 0 0;
+    accent-color: var(--orange-primary);
+    width: 18px;
+    height: 18px;
+}
+
+.theme-option-content {
+    flex: 1;
+}
+
+.theme-option-title {
+    display: block;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.theme-option-description {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.theme-save-btn {
+    width: 100%;
+    background: linear-gradient(45deg, var(--orange-primary), var(--orange-secondary));
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.theme-save-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 109, 0, 0.3);
+}
+
+/* Theme Toggle Button in Footer */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--orange-primary);
+}
+
+/* Dark theme specific adjustments */
+.dark-theme .modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.dark-theme .close-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+/* Update existing modal backdrop for dark theme */
+.dark-theme .modal-backdrop {
+    background: rgba(0, 0, 0, 0.8);
+}

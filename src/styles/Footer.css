@@ -1,7 +1,7 @@
 /* Allegro Footer Styles */
 .allegro-footer {
-    background-color: #f8f8f8;
-    border-top: 1px solid #e6e6e6;
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
     padding: 40px 0 0 0;
     font-family: Arial, sans-serif;
 }
@@ -32,7 +32,7 @@
 .allegro-footer-title {
     font-size: 16px;
     font-weight: 700;
-    color: #2d2d30;
+    color: var(--text-primary);
     margin: 0 0 20px 0;
 }
 
@@ -47,14 +47,14 @@
 }
 
 .allegro-footer-links a {
-    color: #666;
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 13px;
     line-height: 1.4;
 }
 
 .allegro-footer-links a:hover {
-    color: #ff6900;
+    color: var(--orange-primary);
     text-decoration: underline;
 }
 
@@ -71,11 +71,11 @@
 }
 
 .allegro-setting-label {
-    color: #666;
+    color: var(--text-secondary);
 }
 
 .allegro-setting-value {
-    color: #2d2d30;
+    color: var(--text-primary);
     font-weight: 500;
 }
 
@@ -85,7 +85,7 @@
     align-items: center;
     gap: 40px;
     padding: 30px 0;
-    border-top: 1px solid #e6e6e6;
+    border-top: 1px solid var(--border-color);
 }
 
 .allegro-app-stores {
@@ -169,12 +169,13 @@
 }
 
 .allegro-footer-bottom {
-    background-color: #2d2d30;
+    background-color: var(--bg-primary);
     margin: 0 -20px;
     padding: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border-top: 1px solid var(--border-color);
 }
 
 .allegro-footer-logo img {

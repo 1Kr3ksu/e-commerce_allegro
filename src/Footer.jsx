@@ -1,11 +1,29 @@
+import { useState } from 'react';
 import './styles/Footer.css';
 import allegroLogo from '/allegro.png';
 import appStoreBadge from '/app-store-badge.svg';
 import googlePlayBadge from '/google-play-badge.png';
 import appGalleryBadge from '/app-gallery-badge.svg';
 import { FaYoutube, FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaHeart } from 'react-icons/fa';
+import { useTheme } from './contexts/ThemeContext';
+import ThemeModal from './components/ThemeModal';
 
 function Footer() {
+  const { themePreference, currentTheme } = useTheme();
+  const [isThemeModalOpen, setIsThemeModalOpen] = useState(false);
+
+  const getThemeDisplayName = () => {
+    switch (themePreference) {
+      case 'system':
+        return `Preferencje systemowe (${currentTheme === 'dark' ? 'ciemny' : 'jasny'})`;
+      case 'light':
+        return 'Motyw jasny';
+      case 'dark':
+        return 'Motyw ciemny';
+      default:
+        return 'Motyw jasny';
+    }
+  };
   return (
     <footer className="allegro-footer">
       <div className="allegro-footer-container">
@@ -79,7 +97,12 @@ function Footer() {
               <div className="allegro-footer-settings">
                 <div className="allegro-setting-item">
                   <span className="allegro-setting-label">Wygląd:</span>
-                  <span className="allegro-setting-value">Motyw jasny</span>
+                  <button
+                    className="allegro-setting-value theme-toggle-btn"
+                    onClick={() => setIsThemeModalOpen(true)}
+                  >
+                    {getThemeDisplayName()}
+                  </button>
                 </div>
               </div>
 
@@ -147,6 +170,12 @@ function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Theme Modal */}
+      <ThemeModal
+        isOpen={isThemeModalOpen}
+        onClose={() => setIsThemeModalOpen(false)}
+      />
     </footer>
   );
 }
