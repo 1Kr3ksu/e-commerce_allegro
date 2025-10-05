@@ -1,16 +1,17 @@
-# React + Vite
+# 🛒 Projekt: Klon Allegro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ten projekt to frontendowe odwzorowanie strony Allegro, stworzone przy użyciu **React + Vite**.  
+Celem projektu jest odtworzenie wyglądu i podstawowych funkcjonalności nowoczesnej platformy e-commerce, a także nauka i doskonalenie zaawansowanych technik Reacta.
 
-Currently, two official plugins are available:
+## Technologie
+- **React** – logika komponentów i zarządzanie stanem
+- **Vite** – szybkie środowisko deweloperskie
+- **MySQL** – baza danych do przechowywania produktów i użytkowników (w trakcie realizacji)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Funkcjonalności
+- Strona główna inspirowana Allegro
+- Lista produktów z możliwością wyszukiwania i filtrowania (w trakcie realizacji)
+- Karta produktu z opisem i zdjęciami
+- Koszyk i podsumowanie zamówienia (w trakcie realizacji)
+- Responsywny układ dla różnych urządzeń (w trakcie realizacji)
