@@ -117,7 +117,7 @@ function Header() {
                     </div>
                     <button className="login-btn" onClick={() => openAuthModal('login')}>ZALOGUJ SIĘ</button>
                     <div className="register-options">
-                      <p>Nie masz jeszcze konta? Załóż teraz.</p>
+                      <p>Nie masz jeszcze konta? <a onClick={() => openAuthModal('register')}>Załóż teraz.</a></p>
                       <div className="register-buttons">
                         <button className="register-btn buyer" onClick={() => openAuthModal('register', 'buyer')}>DLA KUPUJĄCEGO</button>
                         <button className="register-btn seller" onClick={() => openAuthModal('register', 'seller')}>DLA SPRZEDAJĄCEGO</button>

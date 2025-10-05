@@ -282,6 +282,11 @@
     text-align: center;
 }
 
+.register-options p a:hover {
+    color: #e65100;
+    border-bottom: 1px solid #e65100;
+}
+
 .register-buttons {
     display: flex;
     gap: 8px;
