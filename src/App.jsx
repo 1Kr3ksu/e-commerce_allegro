@@ -3,9 +3,9 @@ import { useState } from 'react'
 import './App.css'
 import Header from './Header'
 import Categories from './categories'
-import Hero_image from './hero_image'
+import Hero_image from './Hero_image'
 import Recommendations from './recommendations'
-import Carts from './carts'
+import Carts from './Carts'
 import Footer from './footer'
 
 function App() {
