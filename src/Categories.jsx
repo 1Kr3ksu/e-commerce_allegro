@@ -1,12 +1,16 @@
 import { useState } from 'react';
+import './App.css';
 
 const categoriesData = [
   {
     name: 'Rankingi',
     items: [
-      'Ranking ekspresów do kawy do 4000 zł',
-      'Ranking ekspresów do kawy do 500 zł',
-      'Ranking ekspresów do kawy do 600 zł',
+      'Ranking głośników bluetooth do 350 zł',
+      'Ranking głośników bluetooth do 400 zł',
+      'Ranking głośników bluetooth do 500 zł',
+      'Ranking głośników komputerowych',
+      'Ranking głośników komputerowych do 400 zł',
+      'Ranking głośników komputerowych do 500 zł'
     ],
   },
   {
@@ -14,119 +18,107 @@ const categoriesData = [
     items: [
       'Podręczniki szkolne',
       'Outlet mebli',
-      'Najlepsze gadżety i akcesoria do samochodu',
+      'Najlepsze gadżety i akcesoria do samochodu – co warto mieć w aucie?',
+      'Tuning kokpitu auta – jak zrobić tuning wewnętrzny auta?',
+      'Poduszka ortopedyczna - jaką wybrać'
     ],
   },
   {
     name: 'Najczęściej czytane',
     items: [
-      'Regeneracja belki skrętnej',
-      'Przyprawy i mieszanki indyjskie',
-      'Piłka do koszykówki',
+      'Regeneracja belki skrętnej – objawy usteri, regeneracja, koszty',
+      'Przyprawy i mieszanki indyjskie, które warto stosować w kuchni',
+      'Piłka do koszykówki – jaką wybrać?',
+      'Gadżety na rower – top akcesoriów, które uatrakcyjnią Twoją jazdę'
     ],
   },
   {
     name: 'Wyjątkowe okazje',
     items: [
-      'EA SPORTS FC FIFA 26',
-      'Znicze na Wszystkich Świętych',
-      'Kalendarz adwentowy z kosmetykami',
+      'Bon na laptop dla nauczyciela',
+      'iPhone 17',
+      'iPhone 17 Pro',
+      'iPhone 16',
+      'Playstation 5',
+      'Nintendo switch 2'
     ],
   },
+  // Dodatkowe kategorie do pokazania po kliknięciu
   {
     name: 'Dom i Ogród',
     items: [
-      'Casino',
-      'Agregat prądotwórczy',
-      'Prezent na dzień nauczyciela',
-      'Basen ogrodowy',
-      'Jacuzzi ogrodowe',
+      'Meble ogrodowe',
+      'Narzędzia budowlane',
+      'Dekoracje wnętrz',
+      'Oświetlenie LED',
+      'Rośliny doniczkowe'
     ],
   },
   {
     name: 'Moda',
     items: [
-      'Iphone 17 pro',
-      'Labubu',
-      'Płaszcze damskie',
-      'Sneakersy damskie',
+      'Ubrania damskie',
+      'Buty sportowe',
+      'Akcesoria modowe',
+      'Zegarki męskie',
+      'Torebki damskie'
     ],
   },
   {
     name: 'Elektronika',
     items: [
-      'Iphone 17',
-      'Iphone 15 pro',
-      'Iphone 17 pro max',
-      'Iphone 13',
-      'Air fryer',
-      'Radio na baterie',
+      'Smartfony',
+      'Laptopy',
+      'Słuchawki bezprzewodowe',
+      'Telewizory',
+      'Konsole do gier'
     ],
   },
   {
-    name: 'Motoryzacja',
+    name: 'Sport i Turystyka',
     items: [
-      'Używane przyczepki samochodowe do 750 kg używane',
-      'Uchwyt na telefon do samochodu',
-      'Focus 2',
-      'Tablice rejestracyjne',
+      'Sprzęt fitness',
+      'Odzież sportowa',
+      'Rowery',
+      'Sprzęt turystyczny',
+      'Suplementy'
     ],
-  },
-  {
-    name: 'Dziecko',
-    items: [
-      'Dzień kropki',
-      'Koszulka w kropki dla chłopca',
-      'Koszulka na dzień kropki',
-      'Fotel do biurka dla dziecka',
-    ],
-  },
-  {
-    name: 'Kultura i rozrywka',
-    items: [
-      'Odkrywam królestwo boże klasa 2',
-      'Moje serce będzie z tobą gdziekolwiek pójdziesz',
-    ],
-  },
+  }
 ];
 
 function Categories() {
   const [showMore, setShowMore] = useState(false);
 
-  // Pierwsze 4 zawsze widoczne
-  const alwaysVisible = categoriesData.slice(0, 4);
-  // Reszta po kliknięciu
-  const hidden = categoriesData.slice(4);
+  // Pierwsze 4 kategorie zawsze widoczne
+  const visibleCategories = showMore ? categoriesData : categoriesData.slice(0, 4);
 
   return (
-    <section className='categories'>
-      {alwaysVisible.map(cat => (
-        <div key={cat.name}>
-          <h4>{cat.name}</h4>
-          <ul>
-            {cat.items.map(item => (
-              <li key={item}><a href="#">{item}</a></li>
-            ))}
-          </ul>
-        </div>
-      ))}
-      {showMore && (
-        <div className="footer-categories-row">
-          {hidden.map(cat => (
-            <div key={cat.name}>
-              <h4>{cat.name}</h4>
-              <ul>
-                {cat.items.map(item => (
-                  <li key={item}><a href="#">{item}</a></li>
+    <section className="allegro-categories-section">
+      <div className="allegro-categories-container">
+        <div className="allegro-categories-grid">
+          {visibleCategories.map((category, index) => (
+            <div key={index} className="allegro-category-column">
+              <h3 className="allegro-category-title">{category.name}</h3>
+              <ul className="allegro-category-links">
+                {category.items.map((item, itemIndex) => (
+                  <li key={itemIndex}>
+                    <a href="#" className="allegro-category-link">{item}</a>
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-      )}
-      <button onClick={() => setShowMore(!showMore)}>
-        {showMore ? 'Ukryj' : 'Pokaż więcej'}
-      </button>
+
+        <div className="allegro-show-more">
+          <button
+            className="allegro-show-more-btn"
+            onClick={() => setShowMore(!showMore)}
+          >
+            {showMore ? 'POKAŻ MNIEJ' : 'POKAŻ WIĘCEJ'}
+          </button>
+        </div>
+      </div>
     </section>
   );
 }
