@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import './styles/Header.css';
+import './styles/Auth.css';
 import allegroLogo from '/allegro.png';
+import AuthModal from './components/auth/AuthModal';
 
 function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  const [authModal, setAuthModal] = useState({ isOpen: false, mode: 'login', userType: 'buyer' });
   const userDropdownRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -13,6 +16,19 @@ function Header() {
 
   const toggleUserDropdown = () => {
     setIsUserDropdownOpen(!isUserDropdownOpen);
+  };
+
+  const openAuthModal = (mode, userType = 'buyer') => {
+    setAuthModal({ isOpen: true, mode, userType });
+    setIsUserDropdownOpen(false); // Zamykamy dropdown
+  };
+
+  const closeAuthModal = () => {
+    setAuthModal({ isOpen: false, mode: 'login', userType: 'buyer' });
+  };
+
+  const handleAuthModeChange = (mode, userType = 'buyer') => {
+    setAuthModal({ isOpen: true, mode, userType });
   };
 
   // Zamykanie dropdown'a po kliknięciu poza nim
@@ -99,12 +115,12 @@ function Header() {
                         <p className="login-text">Jeśli masz już konto, zaloguj się, aby zobaczyć swoje zakupy, obserwowane oferty i powiadomienia. W Allegro jesteś u siebie!</p>
                       </div>
                     </div>
-                    <button className="login-btn">ZALOGUJ SIĘ</button>
+                    <button className="login-btn" onClick={() => openAuthModal('login')}>ZALOGUJ SIĘ</button>
                     <div className="register-options">
                       <p>Nie masz jeszcze konta? Załóż teraz.</p>
                       <div className="register-buttons">
-                        <button className="register-btn buyer">DLA KUPUJĄCEGO</button>
-                        <button className="register-btn seller">DLA SPRZEDAJĄCEGO</button>
+                        <button className="register-btn buyer" onClick={() => openAuthModal('register', 'buyer')}>DLA KUPUJĄCEGO</button>
+                        <button className="register-btn seller" onClick={() => openAuthModal('register', 'seller')}>DLA SPRZEDAJĄCEGO</button>
                       </div>
                     </div>
                   </div>
@@ -114,6 +130,14 @@ function Header() {
           </div>
         </nav>
       </header>
+
+      <AuthModal
+        isOpen={authModal.isOpen}
+        onClose={closeAuthModal}
+        mode={authModal.mode}
+        userType={authModal.userType}
+        onModeChange={handleAuthModeChange}
+      />
     </>
   )
 }
