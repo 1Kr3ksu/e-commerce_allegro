@@ -1,7 +1,34 @@
+import { useState, useEffect, useRef } from 'react';
 import './styles/Header.css';
 import allegroLogo from '/allegro.png';
 
 function Header() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  const userDropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleUserDropdown = () => {
+    setIsUserDropdownOpen(!isUserDropdownOpen);
+  };
+
+  // Zamykanie dropdown'a po kliknięciu poza nim
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
+        setIsUserDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <header>
@@ -23,7 +50,7 @@ function Header() {
                   <option value="toys">Zabawki</option>
                   <option value="motors">Motoryzacja</option>
                 </select>
-                <span className="material-symbols-outlined category-arrow">
+                <span className="material-symbols-outlined search-category-arrow">
                   keyboard_arrow_down
                 </span>
 
@@ -52,12 +79,37 @@ function Header() {
             <div className="icon-item">
               <span className="material-icons shopping-icons">shopping_bag</span>
             </div>
-            <div className="user-menu">
-              <span>Moje Allegro</span>
-              <span className="material-symbols-outlined category-arrow">
-                keyboard_arrow_down
-              </span>
+            <div className="user-menu-container" ref={userDropdownRef}>
+              <div className="user-menu" onClick={toggleUserDropdown}>
+                <span>Moje Allegro</span>
+                <span className={`material-symbols-outlined user-arrow ${isUserDropdownOpen ? 'rotated' : ''}`}>
+                  keyboard_arrow_down
+                </span>
+              </div>
 
+              {isUserDropdownOpen && (
+                <div className="user-dropdown">
+                  <div className="user-dropdown-header">
+                    <div className="user-avatar">
+                      <div className="avatar-circle">
+                        <span className="material-icons">person</span>
+                      </div>
+                      <div className="user-info">
+                        <p className="welcome-text">Witaj w Allegro!</p>
+                        <p className="login-text">Jeśli masz już konto, zaloguj się, aby zobaczyć swoje zakupy, obserwowane oferty i powiadomienia. W Allegro jesteś u siebie!</p>
+                      </div>
+                    </div>
+                    <button className="login-btn">ZALOGUJ SIĘ</button>
+                    <div className="register-options">
+                      <p>Nie masz jeszcze konta? Załóż teraz.</p>
+                      <div className="register-buttons">
+                        <button className="register-btn buyer">DLA KUPUJĄCEGO</button>
+                        <button className="register-btn seller">DLA SPRZEDAJĄCEGO</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </nav>
