@@ -4,7 +4,7 @@ import './App.css'
 import Header from './Header'
 import Categories from './Categories'
 import Hero_image from './Hero_image'
-import Recommendations from './recommendations'
+import Recommendations from './Recommendations'
 import Carts from './Carts'
 import Footer from './Footer'
 
