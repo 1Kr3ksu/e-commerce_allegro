@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Hero_image.css';
+import './styles/Hero.css';
 const slides = [
   {
     img: 'https://tinyurl.com/yreevpjx',

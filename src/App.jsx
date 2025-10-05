@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import './App.css'
+import './styles/global.css';
 import Header from './Header'
 import Categories from './Categories'
 import Hero_image from './Hero_image'

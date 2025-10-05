@@ -1,5 +1,5 @@
-import './App.css'
-import allegroLogo from '/allegro.png'
+import './styles/Header.css';
+import allegroLogo from '/allegro.png';
 
 function Header() {
   return (

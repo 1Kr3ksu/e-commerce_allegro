@@ -1,5 +1,5 @@
-import './App.css'
-import okularyImg from '/okulary.webp'
+import './styles/Products.css';
+import okularyImg from '/okulary.webp';
 
 const products = [
   {

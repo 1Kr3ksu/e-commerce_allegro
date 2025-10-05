@@ -1,5 +1,9 @@
-import './App.css';
+import './styles/Footer.css';
 import allegroLogo from '/allegro.png';
+import appStoreBadge from '/app-store-badge.svg';
+import googlePlayBadge from '/google-play-badge.png';
+import appGalleryBadge from '/app-gallery-badge.svg';
+import { FaYoutube, FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaHeart } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -103,35 +107,35 @@ function Footer() {
 
           <div className="allegro-footer-apps">
             <div className="allegro-app-stores">
-              <a href="#" className="allegro-app-store">
-                <img src="https://assets.allegrostatic.com/metrum/icon/app-store-badgea8b1b8e9c6.svg" alt="App Store" />
+              <a href="https://apps.apple.com/app/allegro/id305659772" target="_blank" rel="noopener noreferrer" className="allegro-app-store">
+                <img src={appStoreBadge} alt="Pobierz w App Store" />
               </a>
-              <a href="#" className="allegro-app-store">
-                <img src="https://assets.allegrostatic.com/metrum/icon/google-play-badge4f75a31e90.svg" alt="Google Play" />
+              <a href="https://play.google.com/store/apps/details?id=pl.allegro" target="_blank" rel="noopener noreferrer" className="allegro-google-play">
+                <img src={googlePlayBadge} alt="Dostępne w Google Play" />
               </a>
-              <a href="#" className="allegro-app-store">
-                <img src="https://assets.allegrostatic.com/metrum/icon/app-gallery-badge7c41e325ab.svg" alt="AppGallery" />
+              <a href="https://appgallery.huawei.com/#/app/C100080395" target="_blank" rel="noopener noreferrer" className="allegro-app-store">
+                <img src={appGalleryBadge} alt="Dostępne w AppGallery" />
               </a>
             </div>
 
             <div className="allegro-social-icons">
               <a href="#" className="allegro-social-link">
-                <i className="fab fa-facebook-f"></i>
+                <FaFacebook />
               </a>
               <a href="#" className="allegro-social-link">
-                <i className="fab fa-linkedin-in"></i>
+                <FaLinkedin />
               </a>
               <a href="#" className="allegro-social-link">
-                <i className="fab fa-instagram"></i>
+                <FaInstagram />
               </a>
               <a href="#" className="allegro-social-link">
-                <i className="fab fa-pinterest-p"></i>
+                <FaPinterest />
               </a>
               <a href="#" className="allegro-social-link">
-                <i className="fab fa-youtube"></i>
+                <FaYoutube />
               </a>
               <a href="#" className="allegro-social-link">
-                <i className="fas fa-heart"></i>
+                <FaHeart />
               </a>
             </div>
           </div>
@@ -140,11 +144,6 @@ function Footer() {
         <div className="allegro-footer-bottom">
           <div className="allegro-footer-logo">
             <img src={allegroLogo} alt="Allegro" />
-          </div>
-          <div className="allegro-footer-scroll">
-            <button className="allegro-scroll-top">
-              <i className="fas fa-chevron-up"></i>
-            </button>
           </div>
         </div>
       </div>

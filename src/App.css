@@ -929,8 +929,9 @@ body {
 
 .allegro-footer-apps {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
     padding: 30px 0;
     border-top: 1px solid #e6e6e6;
 }
@@ -938,33 +939,82 @@ body {
 .allegro-app-stores {
     display: flex;
     gap: 12px;
+    align-items: center;
 }
 
-.allegro-app-store img {
+.allegro-app-store {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+
+.allegro-app-stores img {
     height: 40px;
-    width: auto;
+    width: 135px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Google Play - forsuj dokładny rozmiar */
+.allegro-app-store:nth-child(2) img {
+    object-fit: fill;
+}
+
+/* AppGallery - SVG, forsuj rozmiar */
+.allegro-app-store:nth-child(3) img {
+    object-fit: fill;
 }
 
 .allegro-social-icons {
     display: flex;
-    gap: 16px;
+    gap: 12px;
+    margin-left: 5px;
 }
 
 .allegro-social-link {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #666;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 25px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .allegro-social-link:hover {
-    background-color: #ff6900;
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Facebook - niebieski */
+.allegro-social-link:nth-child(1) {
+    color: #1877f2;
+}
+
+/* LinkedIn - niebieski */
+.allegro-social-link:nth-child(2) {
+    color: #0077b5;
+}
+
+/* Instagram - różowy/fioletowy */
+.allegro-social-link:nth-child(3) {
+    color: #e4405f;
+}
+
+/* Pinterest - czerwony */
+.allegro-social-link:nth-child(4) {
+    color: #bd081c;
+}
+
+/* YouTube - czerwony */
+.allegro-social-link:nth-child(5) {
+    color: #ff0000;
+}
+
+/* Heart - różowy */
+.allegro-social-link:nth-child(6) {
+    color: #e91e63;
 }
 
 .allegro-footer-bottom {
