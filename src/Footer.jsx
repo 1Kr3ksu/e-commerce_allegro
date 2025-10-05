@@ -1,4 +1,5 @@
 import './App.css';
+import allegroLogo from '/allegro.png';
 
 function Footer() {
   return (
@@ -138,7 +139,7 @@ function Footer() {
 
         <div className="allegro-footer-bottom">
           <div className="allegro-footer-logo">
-            <img src="/allegro.png" alt="Allegro" />
+            <img src={allegroLogo} alt="Allegro" />
           </div>
           <div className="allegro-footer-scroll">
             <button className="allegro-scroll-top">

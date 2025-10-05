@@ -1,4 +1,5 @@
 import './App.css'
+import allegroLogo from '/allegro.png'
 
 function Header() {
   return (
@@ -6,7 +7,7 @@ function Header() {
       <header>
         <nav className="navbar">
           <div className="navbar-logo">
-            <img src="/allegro.png" alt="Allegro" />
+            <img src={allegroLogo} alt="Allegro" />
           </div>
 
           <div className="navbar-search">

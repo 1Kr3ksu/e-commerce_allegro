@@ -1,9 +1,10 @@
 import './App.css'
+import okularyImg from '/okulary.webp'
 
 const products = [
   {
     id: 1,
-    image: "/okulary.webp",
+    image: okularyImg,
     title: "SOLARKA DO UBRAŃ TAPICERKI SWETRÓW KANAP NOCNA BLUZA",
     price: "59,90",
     originalPrice: "64,36",
@@ -87,50 +88,50 @@ function Carts() {
       <div className="allegro-container">
         <div className="allegro-section-header">
           <h2 className="allegro-section-title">
-            Okazje do -30%? To dopiero rozgrzewka przed Allegro Days 
+            Okazje do -30%? To dopiero rozgrzewka przed Allegro Days
             <a href="#" className="see-more">Zobacz więcej</a>
           </h2>
         </div>
-        
+
         <div className="allegro-products-grid">
           {products.map((product) => (
             <div key={product.id} className="allegro-product-card">
               {product.isAllegoDays && (
                 <div className="allegro-days-badge">allegro days</div>
               )}
-              
+
               {product.isSuperPrice && (
                 <div className="super-price-badge">SUPERCENA</div>
               )}
-              
+
               <div className="allegro-product-image">
                 <img src={product.image} alt={product.title} />
               </div>
-              
+
               <div className="allegro-product-info">
                 <div className="allegro-price-info">
                   <div className="allegro-old-price">{product.originalPrice} zł</div>
                   <div className="allegro-current-price">{product.price} zł</div>
                 </div>
-                
+
                 <div className="allegro-guarantee">
                   <span className="guarantee-icon">✓</span>
                   {product.guarantee}
                 </div>
-                
+
                 <h3 className="allegro-product-title">{product.title}</h3>
-                
+
                 <div className="allegro-seller">
                   <span className="seller-badge">{product.seller}</span>
                 </div>
-                
+
                 {product.payLater && (
                   <div className="pay-later">
-                    <span>zapłać później</span> 
+                    <span>zapłać później</span>
                     <span className="pay-icon">PAY</span>
                   </div>
                 )}
-                
+
                 <div className="allegro-delivery">
                   {product.delivery}
                 </div>
