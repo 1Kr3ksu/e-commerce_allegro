@@ -1,5 +1,10 @@
 /* Allegro Header Styles */
 .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,6 +12,7 @@
     background-color: #ffffff;
     min-height: 60px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
 }
 
 /* Logo */
