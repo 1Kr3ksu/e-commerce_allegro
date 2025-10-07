@@ -5,3 +5,29 @@
     padding: 20px;
     background-color: var(--bg-tertiary);
 }
+
+/* ===== RESPONSYWNOŚĆ ===== */
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+    .categories {
+        padding: 15px;
+        gap: 8px;
+    }
+}
+
+/* Mobile (320px - 767px) */
+@media (max-width: 767px) {
+    .categories {
+        padding: 10px;
+        gap: 6px;
+    }
+}
+
+/* Bardzo małe ekrany (320px - 479px) */
+@media (max-width: 479px) {
+    .categories {
+        padding: 8px;
+        gap: 4px;
+    }
+}

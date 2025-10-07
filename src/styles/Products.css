@@ -197,9 +197,51 @@
 }
 
 /* Responsive for Allegro style */
-@media (max-width: 768px) {
+/* ===== RESPONSYWNOŚĆ ===== */
+
+/* Desktop duży (1200px+) */
+@media (min-width: 1200px) {
     .allegro-products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Desktop średni (1024px - 1199px) */
+@media (max-width: 1199px) and (min-width: 1024px) {
+    .allegro-products-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Tablet poziomy (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .allegro-products-section {
+        padding: 15px;
+    }
+    
+    .allegro-products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+    
+    .allegro-section-title {
+        font-size: 22px;
+    }
+    
+    .allegro-product-image {
+        width: 100%;
+        height: 140px;
+    }
+}
+
+/* Tablet pionowy (600px - 767px) */
+@media (max-width: 767px) and (min-width: 600px) {
+    .allegro-products-section {
+        padding: 12px;
+    }
+    
+    .allegro-products-grid {
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
     }
 
@@ -209,19 +251,121 @@
         align-items: flex-start;
         gap: 8px;
     }
+    
+    .allegro-product-image {
+        width: 100%;
+        height: 130px;
+    }
+    
+    .allegro-product-title {
+        font-size: 13px;
+        line-height: 1.3;
+    }
 }
 
-@media (max-width: 480px) {
+/* Mobile duży (480px - 599px) */
+@media (max-width: 599px) and (min-width: 480px) {
+    .allegro-products-section {
+        padding: 10px;
+    }
+    
     .allegro-products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .allegro-section-title {
+        font-size: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .allegro-product-image {
+        width: 100%;
+        height: 120px;
+    }
+    
+    .allegro-product-title {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+    
+    .allegro-current-price {
+        font-size: 16px;
+    }
+    
+    .allegro-old-price {
+        font-size: 12px;
+    }
+}
+
+/* Mobile mały (320px - 479px) */
+@media (max-width: 479px) {
+    .allegro-products-section {
+        padding: 8px;
+    }
+    
+    .allegro-products-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
 
-    .allegro-products-section {
-        padding: 12px;
+    .allegro-section-title {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
     }
-
+    
+    .allegro-product-card {
+        border-radius: 4px;
+    }
+    
     .allegro-product-image {
-        height: 120px;
+        width: 100%;
+        height: 100px;
+        padding: 4px;
+    }
+    
+    .allegro-product-info {
+        padding: 6px;
+    }
+    
+    .allegro-product-title {
+        font-size: 11px;
+        line-height: 1.2;
+        margin: 4px 0;
+    }
+    
+    .allegro-current-price {
+        font-size: 14px;
+    }
+    
+    .allegro-old-price {
+        font-size: 11px;
+    }
+    
+    .allegro-guarantee {
+        font-size: 10px;
+        margin: 2px 0;
+    }
+    
+    .allegro-delivery {
+        font-size: 10px;
+    }
+    
+    .allegro-days-badge {
+        font-size: 9px;
+        padding: 1px 4px;
+        top: 4px;
+        left: 4px;
+    }
+    
+    .super-price-badge {
+        font-size: 8px;
+        padding: 1px 3px;
+        top: 20px;
+        left: 4px;
     }
 }
