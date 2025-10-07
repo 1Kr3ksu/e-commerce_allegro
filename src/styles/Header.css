@@ -353,8 +353,8 @@
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        gap: 12px;
-        padding: 12px 16px;
+        gap: 8px;
+        padding: 8px 12px;
         min-height: 50px;
     }
 
@@ -367,14 +367,18 @@
 
     .navbar-icons {
         order: 3;
-        justify-content: center;
+        justify-content: space-around;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     .navbar-logo {
         margin-right: 0;
         order: 1;
+        text-align: center;
     }
     
     .navbar-logo img {
@@ -384,6 +388,7 @@
     .icon-container {
         width: 32px;
         height: 32px;
+        flex-shrink: 0;
     }
     
     .icon-container i {
@@ -396,12 +401,34 @@
         font-size: 10px;
         line-height: 16px;
     }
+    
+    /* Lepsze układanie ikon */
+    .icon-container span {
+        font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 40px;
+    }
+    
+    /* Ukryj niektóre ikony na mobilnych */
+    .icon-item:nth-child(1), /* delivery */
+    .icon-item:nth-child(2), /* chat support */
+    .icon-item:nth-child(4)  /* notifications */ {
+        display: none;
+    }
+    
+    /* Zostaw tylko ulubione, koszyk i Moje Allegro */
+    .navbar-icons {
+        justify-content: center;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 479px) {
     .navbar {
-        padding: 8px 10px;
-        gap: 8px;
+        padding: 6px 8px;
+        gap: 6px;
     }
     
     .navbar-logo img {
@@ -414,15 +441,114 @@
     }
     
     .search-button {
-        padding: 8px 12px;
+        padding: 8px 10px;
     }
     
     .icon-container {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
     }
     
     .navbar-icons {
-        gap: 8px;
+        gap: 6px;
+        max-width: 280px;
+        justify-content: space-between;
+    }
+    
+    /* Ukryj teksty pod ikonami na bardzo małych ekranach */
+    .icon-container span {
+        display: none;
+    }
+    
+    /* Zmniejsz czcionkę w search */
+    .search-input::placeholder {
+        font-size: 12px;
+    }
+    
+    /* Kompaktowy layout dla Galaxy A56 */
+    .navbar-search {
+        order: 2;
+    }
+    
+    .navbar-icons {
+        order: 3;
+        padding: 0 5px;
+    }
+}
+
+/* Specjalna responsywność dla Samsung Galaxy A56 (412px szerokości) */
+@media (max-width: 420px) and (min-width: 360px) {
+    .navbar {
+        padding: 5px 6px;
+        gap: 5px;
+        min-height: 45px;
+    }
+    
+    .navbar-logo {
+        flex-shrink: 0;
+    }
+    
+    .navbar-logo img {
+        height: 22px;
+    }
+    
+    .search-container {
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* Ukryj kategorie na bardzo małych ekranach */
+    .search-category {
+        display: none;
+    }
+    
+    .search-input {
+        padding: 6px 8px;
+        font-size: 12px;
+        min-width: 0;
+        flex: 1;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    .search-button {
+        padding: 6px 8px;
+        flex-shrink: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    
+    .navbar-icons {
+        gap: 15px;
+        max-width: 100%;
+        justify-content: center;
+        padding: 0 2px;
+    }
+    
+    .icon-container {
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+    }
+    
+    .icon-container i {
+        font-size: 12px;
+    }
+    
+    .cart-count {
+        width: 14px;
+        height: 14px;
+        font-size: 9px;
+        line-height: 14px;
+    }
+    
+    /* Kompaktowy user menu */
+    .user-menu span:first-child {
+        font-size: 12px;
+    }
+    
+    .user-dropdown {
+        width: 280px;
+        right: -20px;
     }
 }
