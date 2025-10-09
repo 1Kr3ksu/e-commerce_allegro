@@ -26,39 +26,11 @@ app.get('/', (req, res) => {
     return res.json('From Backend site - Server');
 });
 
-// Endpoint to test database connection
-app.get('/test-db', (req, res) => {
-    db.query('SELECT 1 as test', (err, result) => {
-        if (err) {
-            return res.status(500).json({
-                status: 'error',
-                message: 'Database connection failed',
-                error: err.message
-            });
-        }
-        return res.json({
-            status: 'success',
-            message: 'Database connection is working!',
-            data: result
-        });
-    });
-});
-
-// Endpoint to check database tables
-app.get('/check-tables', (req, res) => {
-    db.query('SHOW TABLES', (err, result) => {
-        if (err) {
-            return res.status(500).json({
-                status: 'error',
-                message: 'Failed to fetch tables',
-                error: err.message
-            });
-        }
-        return res.json({
-            status: 'success',
-            message: 'Tables in database',
-            tables: result
-        });
+app.get('/products', (req, res) => {
+    const sql = "SELECT * FROM products"; 
+    db.query(sql, (err, data) => {
+        if(err) return res.json(err);
+        return res.json(data); 
     });
 });
 

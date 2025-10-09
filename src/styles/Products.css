@@ -196,6 +196,23 @@
     margin-top: auto;
 }
 
+/* Loading and Error States */
+.loading, .error {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+.error {
+    color: #e74c3c;
+    background: var(--bg-secondary);
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
 /* Responsive for Allegro style */
 /* ===== RESPONSYWNOŚĆ ===== */
 
