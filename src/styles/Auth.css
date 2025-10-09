@@ -14,7 +14,7 @@
 }
 
 .modal-content {
-    background: white;
+    background: var(--bg-primary);
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     max-width: 450px;
@@ -64,14 +64,14 @@
     margin: 0;
     font-size: 24px;
     font-weight: 700;
-    color: #2d2d30;
+    color: var(--text-primary);
 }
 
 .close-btn {
     background: none;
     border: none;
     font-size: 28px;
-    color: #999;
+    color: var(--text-secondary);
     cursor: pointer;
     padding: 0;
     width: 32px;
@@ -84,8 +84,8 @@
 }
 
 .close-btn:hover {
-    background: #f5f5f5;
-    color: #666;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 /* Form styles */
@@ -106,7 +106,7 @@
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
-    color: #2d2d30;
+    color: var(--text-primary);
     font-size: 14px;
 }
 
@@ -126,7 +126,7 @@
 }
 
 .form-group input::placeholder {
-    color: #999;
+    color: var(--text-tertiary);
 }
 
 /* Checkbox styles */
@@ -199,7 +199,7 @@
 
 .switch-mode {
     font-size: 14px;
-    color: #666;
+    color: var(--text-secondary);
 }
 
 .switch-btn {
@@ -223,7 +223,7 @@
 
 /* Forgot password styles */
 .auth-description {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 14px;
     margin-bottom: 24px;
     line-height: 1.5;
@@ -237,7 +237,7 @@
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
-    color: #2d2d30;
+    color: var(--text-primary);
     font-size: 14px;
 }
 
@@ -257,8 +257,8 @@
 }
 
 .input-group input:disabled {
-    background-color: #f5f5f5;
-    color: #999;
+    background-color: var(--bg-secondary);
+    color: var(--text-tertiary);
     cursor: not-allowed;
 }
 
@@ -306,19 +306,19 @@
     margin: 0 0 16px;
     font-size: 18px;
     font-weight: 600;
-    color: #2d2d30;
+    color: var(--text-primary);
 }
 
 .success-description {
     font-size: 14px !important;
-    color: #666 !important;
+    color: var(--text-secondary) !important;
     font-weight: normal !important;
     margin-bottom: 12px !important;
 }
 
 .success-note {
     font-size: 13px !important;
-    color: #999 !important;
+    color: var(--text-tertiary) !important;
     font-weight: normal !important;
     margin-bottom: 32px !important;
 }
@@ -352,14 +352,14 @@
 }
 
 .auth-btn.secondary {
-    background: #f5f5f5;
-    color: #666;
-    border: 1px solid #e6e6e6;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
 }
 
 .auth-btn.secondary:hover {
-    background: #ebebeb;
-    color: #333;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
 }
 
 .auth-btn.full-width {
