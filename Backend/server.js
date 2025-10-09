@@ -7,11 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: process.env.MYSQLHOST || 'localhost',
-    port: process.env.MYSQLPORT || 3306,
-    user: process.env.MYSQLUSER || 'root',
-    password: process.env.MYSQLPASSWORD || '',
-    database: process.env.MYSQLDATABASE || 'e-commerce_allegro'
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'e-commerce_allegro'
 });
 
 // Test connection to database
@@ -35,16 +34,6 @@ app.get('/products', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 8081;
-
-console.log('Environment variables:');
-console.log('MYSQLHOST:', process.env.MYSQLHOST);
-console.log('MYSQLPORT:', process.env.MYSQLPORT);
-console.log('MYSQLUSER:', process.env.MYSQLUSER);
-console.log('MYSQLDATABASE:', process.env.MYSQLDATABASE);
-console.log('PORT:', PORT);
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    console.log('Server started successfully!');
+app.listen(8081, () => {
+    console.log('Server is running on port 8081');
 });

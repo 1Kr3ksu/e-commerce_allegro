@@ -9,7 +9,7 @@ function Carts() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // Tymczasowo localhost - Railway nie działa
+        // Localhost backend
         const API_URL = 'http://localhost:8081/products';
         
         const response = await fetch(API_URL);
