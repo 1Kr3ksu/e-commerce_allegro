@@ -37,6 +37,14 @@ app.get('/products', (req, res) => {
 
 const PORT = process.env.PORT || 8081;
 
+console.log('Environment variables:');
+console.log('MYSQLHOST:', process.env.MYSQLHOST);
+console.log('MYSQLPORT:', process.env.MYSQLPORT);
+console.log('MYSQLUSER:', process.env.MYSQLUSER);
+console.log('MYSQLDATABASE:', process.env.MYSQLDATABASE);
+console.log('PORT:', PORT);
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    console.log('Server started successfully!');
 });
