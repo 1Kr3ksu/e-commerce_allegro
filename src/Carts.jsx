@@ -41,11 +41,11 @@ function Carts() {
         <div className="allegro-products-grid">
           {products.map((product) => (
             <div key={product.id} className="allegro-product-card">
-              {product.is_allegro_days && (
+              {product.is_allegro_days == 1 && (
                 <div className="allegro-days-badge">allegro days</div>
               )}
 
-              {product.is_super_price && (
+              {product.is_super_price == 1 && (
                 <div className="super-price-badge">SUPERCENA</div>
               )}
 
@@ -55,10 +55,10 @@ function Carts() {
 
               <div className="allegro-product-info">
                 <div className="allegro-price-info">
-                  {product.original_price && (
-                    <div className="allegro-old-price">{product.original_price} zł</div>
+                  {product.original_price && product.original_price > 0 && (
+                    <div className="allegro-old-price">{parseFloat(product.original_price).toFixed(2)} zł</div>
                   )}
-                  <div className="allegro-current-price">{product.price} zł</div>
+                  <div className="allegro-current-price">{parseFloat(product.price).toFixed(2)} zł</div>
                 </div>
 
                 <div className="allegro-guarantee">
@@ -72,7 +72,7 @@ function Carts() {
                   <span className="seller-badge">{product.seller}</span>
                 </div>
 
-                {product.pay_later && (
+                {product.pay_later == 1 && (
                   <div className="pay-later">
                     <span>zapłać później</span>
                     <span className="pay-icon">PAY</span>
