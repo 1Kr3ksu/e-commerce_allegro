@@ -145,6 +145,51 @@ app.get('/products', (req, res) => {
     });
 });
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+    // Check database connection and table
+    db.query('SHOW TABLES LIKE "products"', (err, tables) => {
+        if (err) {
+            return res.json({ 
+                status: 'error', 
+                database: 'disconnected',
+                error: err.message 
+            });
+        }
+        
+        const tableExists = tables.length > 0;
+        
+        if (tableExists) {
+            db.query('SELECT COUNT(*) as count FROM products', (err, result) => {
+                if (err) {
+                    return res.json({ 
+                        status: 'error', 
+                        database: 'connected',
+                        table: 'exists',
+                        error: err.message 
+                    });
+                }
+                
+                return res.json({ 
+                    status: 'ok', 
+                    database: 'connected',
+                    table: 'exists',
+                    products_count: result[0].count,
+                    environment: process.env.NODE_ENV || 'development',
+                    mysql_host: process.env.MYSQLHOST || 'localhost'
+                });
+            });
+        } else {
+            return res.json({ 
+                status: 'warning', 
+                database: 'connected',
+                table: 'missing',
+                message: 'Products table does not exist'
+            });
+        }
+    });
+});
+
 const PORT = process.env.PORT || 8081;
 
 app.listen(PORT, () => {
