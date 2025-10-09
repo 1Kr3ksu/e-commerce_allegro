@@ -1,0 +1,11 @@
+# Ignoruj pliki frontendu dla Railway backend service
+src/
+public/
+index.html
+vite.config.js
+.vite/
+dist/
+node_modules/
+package-lock.json
+eslint.config.js
+*.md
