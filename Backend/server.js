@@ -6,11 +6,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Railway MySQL connection
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'e-commerce_allegro'
+    host: process.env.MYSQLHOST || 'localhost',
+    port: process.env.MYSQLPORT || 3306,
+    user: process.env.MYSQLUSER || 'root',
+    password: process.env.MYSQLPASSWORD || '',
+    database: process.env.MYSQLDATABASE || 'e-commerce_allegro'
 });
 
 // Test connection to database
@@ -34,6 +36,8 @@ app.get('/products', (req, res) => {
     });
 });
 
-app.listen(8081, () => {
-    console.log('Server is running on port 8081');
+const PORT = process.env.PORT || 8081;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
