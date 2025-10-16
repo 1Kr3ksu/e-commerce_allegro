@@ -15,3 +15,4 @@ Celem projektu jest odtworzenie wyglądu i podstawowych funkcjonalności nowocze
 - Karta produktu z opisem i zdjęciami
 - Koszyk i podsumowanie zamówienia (w trakcie realizacji)
 - Responsywny układ dla różnych urządzeń (w trakcie realizacji)
+- Podstrony np. Koszyk zrobiony za pomocą react router (w trakcie realizacji)
