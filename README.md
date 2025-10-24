@@ -11,7 +11,7 @@ Celem projektu jest odtworzenie wyglądu i podstawowych funkcjonalności nowocze
 
 ## Funkcjonalności
 - Strona główna inspirowana Allegro
-- Lista produktów z możliwością wyszukiwania i filtrowania (w trakcie realizacji)
+- Lista produktów z możliwością wyszukiwania i filtrowania
 - Karta produktu z opisem i zdjęciami
 - Koszyk i podsumowanie zamówienia (w trakcie realizacji)
 - Responsywny układ dla różnych urządzeń (w trakcie realizacji)
