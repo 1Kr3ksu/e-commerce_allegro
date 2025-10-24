@@ -34,6 +34,38 @@ app.get('/products', (req, res) => {
     });
 });
 
+// Nowy endpoint do wyszukiwania produktów
+app.get('/products/search', (req, res) => {
+    const { search, category } = req.query;
+    
+    let sql = "SELECT * FROM products WHERE 1=1";
+    let params = [];
+    
+    if (search) {
+        sql += " AND title LIKE ?";
+        params.push(`%${search}%`);
+    }
+    
+    if (category && category !== 'all') {
+        sql += " AND category = ?";
+        params.push(category);
+    }
+    
+    db.query(sql, params, (err, data) => {
+        if(err) return res.json(err);
+        return res.json(data);
+    });
+});
+
+// Endpoint do pobierania dostępnych kategorii
+app.get('/categories', (req, res) => {
+    const sql = "SELECT DISTINCT category FROM products WHERE category IS NOT NULL";
+    db.query(sql, (err, data) => {
+        if(err) return res.json(err);
+        return res.json(data.map(row => row.category));
+    });
+});
+
 app.listen(8081, () => {
     console.log('Server is running on port 8081');
 });

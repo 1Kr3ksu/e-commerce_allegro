@@ -4,10 +4,12 @@ import './styles/Auth.css';
 import allegroLogo from '/allegro.png';
 import AuthModal from './components/auth/AuthModal';
 
-function Header() {
+function Header({ onSearch, onCategoryChange }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const [authModal, setAuthModal] = useState({ isOpen: false, mode: 'login', userType: 'buyer' });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const userDropdownRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -29,6 +31,32 @@ function Header() {
 
   const handleAuthModeChange = (mode, userType = 'buyer') => {
     setAuthModal({ isOpen: true, mode, userType });
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (onSearch) {
+      onSearch(searchTerm, selectedCategory);
+    }
+  };
+
+  const handleSearchInputChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    if (onSearch) {
+      onSearch(value, selectedCategory);
+    }
+  };
+
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+    if (onCategoryChange) {
+      onCategoryChange(category);
+    }
+    if (onSearch) {
+      onSearch(searchTerm, category);
+    }
   };
 
   // Zamykanie dropdown'a po kliknięciu poza nim
@@ -54,10 +82,20 @@ function Header() {
           </div>
 
           <div className="navbar-search">
-            <div className="search-container">
-              <input type="text" placeholder="czego szukasz?" className="search-input" />
+            <form className="search-container" onSubmit={handleSearch}>
+              <input 
+                type="text" 
+                placeholder="czego szukasz?" 
+                className="search-input"
+                value={searchTerm}
+                onChange={handleSearchInputChange}
+              />
               <div className="search-category">
-                <select className="category-select">
+                <select 
+                  className="category-select"
+                  value={selectedCategory}
+                  onChange={handleCategoryChange}
+                >
                   <option value="all">Wszystkie kategorie</option>
                   <option value="electronics">Elektronika</option>
                   <option value="fashion">Moda</option>
@@ -72,7 +110,7 @@ function Header() {
 
               </div>
               <button type="submit" className="search-button">SZUKAJ</button>
-            </div>
+            </form>
           </div>
 
           <div className="navbar-icons">

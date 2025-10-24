@@ -11,12 +11,30 @@ import Carts from './Carts'
 import Footer from './Footer'
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const handleSearch = (term, category) => {
+    setSearchTerm(term);
+    setSelectedCategory(category);
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <ThemeProvider>
-      <Header />
+      <Header 
+        onSearch={handleSearch}
+        onCategoryChange={handleCategoryChange}
+      />
       <Hero_image />
       <Recommendations />
-      <Carts />
+      <Carts 
+        searchTerm={searchTerm}
+        selectedCategory={selectedCategory}
+      />
       <Categories />
       <Footer />
     </ThemeProvider>
